@@ -1,0 +1,42 @@
+[gd_scene load_steps=9 format=3 uid="uid://1r6faf02smaa"]
+
+[ext_resource type="Script" uid="uid://dk1uamx2xjvou" path="res://scripts/player/player.gd" id="1_qlg0r"]
+[ext_resource type="Script" uid="uid://dwatmokli06i" path="res://scripts/player/scarf_manager/scarf_manager.gd" id="2_fjrip"]
+[ext_resource type="Script" uid="uid://b5ykxph46xc8h" path="res://scripts/player/scarf_manager/scarf_renderer.gd" id="2_tuyoq"]
+[ext_resource type="Script" uid="uid://c380u5op16usc" path="res://scripts/player/scarf_manager/swipe_detector.gd" id="3_fjrip"]
+[ext_resource type="Script" uid="uid://b5fsq6xgpta8d" path="res://scripts/player/scarf_manager/grapple_physics.gd" id="4_smehm"]
+[ext_resource type="Script" uid="uid://dd1p4hx0ivy2j" path="res://scripts/player/player_camera.gd" id="5_ur7pv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y4r1p"]
+size = Vector2(45, 74)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_d2wvv"]
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_qlg0r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_y4r1p")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(47.835, 76.185)
+texture = SubResource("PlaceholderTexture2D_d2wvv")
+
+[node name="ScarfManager" type="Node2D" parent="."]
+script = ExtResource("2_fjrip")
+
+[node name="RayCast2D" type="RayCast2D" parent="ScarfManager"]
+target_position = Vector2(500, 0)
+
+[node name="ScarfRenderer" type="Node2D" parent="ScarfManager"]
+script = ExtResource("2_tuyoq")
+
+[node name="SwipeDetector" type="Node2D" parent="ScarfManager"]
+script = ExtResource("3_fjrip")
+
+[node name="GrapplePhysics" type="Node2D" parent="ScarfManager"]
+script = ExtResource("4_smehm")
+
+[node name="PlayerCamera" type="Camera2D" parent="."]
+script = ExtResource("5_ur7pv")
