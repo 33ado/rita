@@ -17,7 +17,7 @@ func start_scarf_retract():
 	retracting = true
 		
 func update_line(player_pos: Vector2, grapple_point: Vector2):
-	scarf.set_point_position(1, to_local(current_point))
+	scarf.points = [player_pos, current_point]
 	if extending:
 		var dir = current_point.direction_to(grapple_point)
 		var dist = current_point.distance_to(grapple_point)
@@ -30,7 +30,7 @@ func update_line(player_pos: Vector2, grapple_point: Vector2):
 	elif retracting:
 		var dir = current_point.direction_to(player_pos)
 		var dist = current_point.distance_to(player_pos)
-		
+
 		if extend_speed >= dist:
 			current_point = player_pos
 			retracting = false
