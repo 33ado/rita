@@ -33,6 +33,7 @@ target_position = Vector2(500, 0)
 
 [node name="ScarfRenderer" type="Node2D" parent="ScarfManager"]
 script = ExtResource("2_tuyoq")
+extend_speed = null
 
 [node name="SwipeDetector" type="Node2D" parent="ScarfManager"]
 script = ExtResource("3_fjrip")

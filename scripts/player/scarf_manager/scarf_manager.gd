@@ -44,10 +44,12 @@ func _physics_process(delta: float) -> void:
 		_launch()
 	if Input.is_action_just_released("grapple") and not player.is_on_floor() and is_grappling:
 		_retract()
-		
+	
+	if is_grappling or scarf_renderer.extending or scarf_renderer.retracting:
+		scarf_renderer.update_line(player.global_position, grapple_point)
+	
 	if is_grappling:
 		_check_scarf_state()
-		scarf_renderer.update_line(grapple_point)
 		match scarf_state:
 			ScarfState.SWING:
 				_handle_swing_physics()
@@ -172,7 +174,6 @@ func _handle_pull_physics():
 
 	player.global_position = swing_body.global_position
 	player.global_rotation = lerp(player.global_rotation, swing_body.global_rotation, 0.1)
-	print(swing_body.linear_velocity)
 
 func _start_pull():
 	_pull_time_left = 0.4   # duration of the pull, adjust as needed

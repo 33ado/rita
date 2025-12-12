@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://1r6faf02smaa"]
+[gd_scene load_steps=9 format=3 uid="uid://1r6faf02smaa"]
 
 [ext_resource type="Script" uid="uid://dk1uamx2xjvou" path="res://scripts/player/player.gd" id="1_qlg0r"]
 [ext_resource type="Script" uid="uid://dwatmokli06i" path="res://scripts/player/scarf_manager/scarf_manager.gd" id="2_fjrip"]
@@ -11,8 +11,6 @@
 size = Vector2(45, 74)
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_d2wvv"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_tuyoq"]
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_qlg0r")
@@ -39,11 +37,6 @@ script = ExtResource("3_fjrip")
 
 [node name="GrapplePhysics" type="Node2D" parent="ScarfManager"]
 script = ExtResource("4_smehm")
-
-[node name="Scarf" type="Line2D" parent="ScarfManager"]
-points = PackedVector2Array(0, 0, 0, 0)
-texture = SubResource("PlaceholderTexture2D_tuyoq")
-texture_mode = 2
 
 [node name="PlayerCamera" type="Camera2D" parent="."]
 script = ExtResource("5_ur7pv")
