@@ -2,15 +2,15 @@ extends Node2D
 
 @onready var scarf = $"../Scarf"
 
-@export var extend_speed := 25.0
+@export var extend_speed := 30.0
 var current_point := Vector2.ZERO
 var extending := false
 var retracting := false
 
 func start_scarf_extend(player_pos):
-	print("hi")
 	current_point = player_pos
 	scarf.visible = true
+	retracting = false
 	extending = true
 	
 func start_scarf_retract():
