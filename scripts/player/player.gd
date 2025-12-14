@@ -7,6 +7,7 @@ const SPEED = 350.0
 const JUMP_VELOCITY = -350.0
 const ACCELERATION = 0.1
 
+# NOTE: Input managment for grappling hook is in scarf_manager.gd, because of bug avoidance
 func _physics_process(delta: float) -> void:
 	if not scarf_manager.is_grappling:
 		player_camera.set_camera_state(player_camera.CameraState.DEFAULT)
