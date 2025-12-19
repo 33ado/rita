@@ -21,7 +21,7 @@ func is_swiping_from_grapple_to_player(grapple_point : Vector2) -> bool:
 		_previous_mouse_pos = get_global_mouse_position()
 		return false
 		
-	# Check direction: must point roughly toward the player
+	# must point roughly toward the player
 	var dir_to_player = (player.global_position - get_global_mouse_position()).normalized()
 	var swipe_dir = delta.normalized()
 	

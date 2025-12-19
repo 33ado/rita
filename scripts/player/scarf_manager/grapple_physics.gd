@@ -38,15 +38,15 @@ func setup_pin(grapple_point: Vector2):
 	pin.node_b = swing_body.get_path()
 
 func handle_swing_physics():
-	# Handle player input
-	var tanget = Vector2(Input.get_axis("ui_left", "ui_right"), 0)
-	swing_body.apply_central_impulse(tanget * grapple_sensitivity)
+	if not swing_body: return
 	
 	# Set player position to next swing position
 	player.global_position = swing_body.global_position
 	player.global_rotation = lerp(player.global_rotation, swing_body.global_rotation, 0.1)
 
 func handle_pull_physics(grapple_point: Vector2):
+	if not swing_body: return
+	
 	# distance between mouse and grapple point
 	var dist = grapple_point.distance_to(get_global_mouse_position())
 	# optional scaling to tune power
